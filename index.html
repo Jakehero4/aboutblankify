@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open URL in about:blank</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Open URL in about:blank</h1>
+    <form id="urlForm">
+        <label for="urlInput">Enter URL:</label><br>
+        <input type="text" id="urlInput" name="urlInput" placeholder="https://example.com">
+        <button type="submit">Open</button>
+    </form>
+
+    <script>
+        document.getElementById('urlForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            var url = document.getElementById('urlInput').value.trim();
+            if (url !== '') {
+                window.open('about:blank').location.href = url; // Open about:blank and navigate to the entered URL
+            }
+        });
+    </script>
+</body>
+</html>
